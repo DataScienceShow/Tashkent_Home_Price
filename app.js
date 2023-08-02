@@ -29,8 +29,8 @@ var estPrice = document.getElementById("uiEstimatedPrice");
 
 console.log(room)
 
-// var url = "http://127.0.0.1:5000/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
-var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
+var url = "http://127.0.0.1:5000/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
+//var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
 // var url= "http://127.0.0.1:5000/get_location_name"
 $.post(url, {
     headers: {
@@ -50,8 +50,8 @@ $.post(url, {
 function onPageLoad() {
 console.log( "document loaded" );
 
-// var url = "http://127.0.0.1:5000/get_location_name";
-var url = "/api/get_location_name";
+var url = "http://127.0.0.1:5000/get_location_name";
+// var url = "/api/get_location_name";
 $.get(url,function(data, status) {
     console.log("got response for get_location_names request");
     if(data) {
