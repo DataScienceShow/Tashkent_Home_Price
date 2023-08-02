@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashkent Home Price Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="img"></div>
+<form class="form">
+	<h2 class="area-title">Area (Square Meter)</h2>
+    <input class="area"  type="text" id="uiSqft" class="floatLabel" name="Squareft" value="1000">
+	<h2 class="rooms-title">Rooms</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-bhk-1" name="uiBHK" value="1"/>
+		<label for="radio-bhk-1">1</label>
+		<input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked/>
+		<label for="radio-bhk-2">2</label>
+		<input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/>
+		<label for="radio-bhk-3">3</label>
+		<input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/>
+		<label for="radio-bhk-4">4</label>
+		<input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/>
+		<label for="radio-bhk-5">5</label>
+	</div>
+	</form>
+<form class="form">
+    <h2 class="home-title">Type of Home</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-bath-1" name="uiHousetype" value="new"/>
+		<label for="radio-bath-1" class="new">New</label>
+		<input type="radio" id="radio-bath-2" name="uiHousetype" value="secondary" checked/>
+		<label for="radio-bath-2" class="sec">Secondary</label>
+	</div>
+		<h2 class="location-title">Location</h2>
+	<div>
+  <select class="location" name="" id="uiLocations">
+    <option class="choose" disabled="disabled" selected="selected">Choose a Location</option>
+		<option>Bektemir district</option>
+        <option>Yunusabad district</option>
+  </select>
+</div>
+	<button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+	<div id="uiEstimatedPrice" class="result">
+			<h2></h2>
+		 </div>
+
+		 <div id="lang-select-form">
+			<select name="lang" id="lang" class="form-lang" onchange="switchLang()">
+				<option value="Uzbek" class="language">Uzbek</option>
+				<option value="English" class="language">English</option>
+				<option value="Russian" class="language">Russian</option>
+			</select>
+		 </div>
+
+	<script>
+		function switchLang() {
+    const langValue = document.querySelector('.form-lang').value
+
+    document.querySelector('.area-title').innerHTML = langValue === 'Uzbek' ? 'Maydon (kvadrat metr)' : langValue === 'Russian' ? 'Площадь (квадратные метры)' : 'Area (square meter)'
+
+    document.querySelector('.rooms-title').innerHTML = langValue === 'Uzbek' ? 'Xonalar' : langValue === 'Russian' ? 'Комнаты' : 'Rooms'
+
+    document.querySelector('.home-title').innerHTML = langValue === 'Uzbek' ? 'Uy turi' : langValue === 'English' ? 'Type of Home' : 'Тип жилья'
+
+    document.querySelector('.location-title').innerHTML = langValue === 'Uzbek' ? 'Joylashuv' : langValue === 'Russian' ? 'Местоположение' : 'Location'
+
+    document.querySelector('.submit').innerHTML = langValue === 'Uzbek' ? "Taxminiy narx" : langValue === 'English' ? 'Estimate Price' : 'Ориентировочная цена'
+
+    document.querySelector('.choose').innerHTML = langValue === 'Uzbek' ? 'Joyni tanlang' : langValue === 'Russian' ? "Выберите место" : 'Choose a Location' 
+
+    document.querySelector('.new').innerHTML = langValue === 'Uzbek' ? 'Yangi' : langValue === 'Russian' ? 'Новый' : 'New'
+
+    document.querySelector('.sec').innerHTML = langValue === 'Uzbek' ? 'Oldin yashalgan' : langValue === 'Russian' ? 'Вторичный' : 'Secondary'
+}
+
+	</script>
+</body>
+</html>
